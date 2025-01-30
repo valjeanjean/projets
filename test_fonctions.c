@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
-int main(){
+int main() {
+    char user_input[10];  // Un tableau pour stocker la chaîne de caractères
+    int input_value;
 
-  int a, i;
+    printf("Entrez un nombre : ");
+    fgets(user_input, sizeof(user_input), stdin);  // Lecture de la ligne complète
 
-  char mot[6] = {'s','a','l','u','t',0};
+    // Conversion de la chaîne en entier
+    input_value = atoi(user_input);
 
-  printf("mot = %s\n", mot);
-
-  
-  return 0;
+    printf("Vous avez entré l'entier : %d\n", input_value);
+    return 0;
 }
-
