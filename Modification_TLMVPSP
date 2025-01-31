@@ -1,0 +1,9 @@
+Donc ça peut être un truc du style "\n" || "CARRE\n" ? NON, faire un strcmp supplémentaire; FAIT ;
+Vérifier indentation du code : Pas plus de une ligne de décalage
+Changer nom des fonctions qui rappellent les règles :
+if_regle_duo -> print_regle_duo, etc..
+
+Si variable est un booléen, comme duo_comparaison, autant l'appeler is_duo : FAIT
+
+Rajouter une option lors du DUO CARRE CASH pour que l'utilisateur puisse choisir de quitté le jeu : FAIT;
+Rajouter une option pour que l'utilisateur ait le choix de réafficher son score : PAS FAIT

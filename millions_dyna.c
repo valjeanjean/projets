@@ -16,8 +16,6 @@ char* questions[NB_QUESTIONS] = {
     "Je m'appelle comment ?\n1.Michel\n2.Massi\n", 
 };
 
-
-
 /*
     Déclaration de variables globales pour les calculs du
     - score
@@ -65,7 +63,7 @@ int main(void){
             printf("###################################################\n");
             printf("Score : %d\n", score);
             printf("###################################################\n\n");
-            compteur_reponses++;
+            nb_bonne_reponse++;
 
         // Si l'utilisateur n'a pas saisi la bonne réponse, exécuter les instructions ci dessous.
 

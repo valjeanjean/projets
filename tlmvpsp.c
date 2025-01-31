@@ -3,7 +3,6 @@
 #include <math.h>
 #include <string.h> 
 
-
 #define NB_QUESTIONS 6
 #define choix_duo_cash 3
 
@@ -16,7 +15,6 @@ char* questions[NB_QUESTIONS] = {
     "Quelle est la capitale de l'Australie ?\n",
     "Quelle est l'année de l'assassinat de Kennedy?\n", 
 };
-
 
 /*Tableau regroupant les propositions qui seront faite à l'utilisateur s'il choisit "CARRE"*/
 char* choix_reponses_carre[NB_QUESTIONS] = {
@@ -34,9 +32,8 @@ char* DUO_CARRE_CASH[choix_duo_cash] = {
     "DUO\n",
     "CARRE\n",
     "CASH\n",
-
+//RAJOUTER "\n" pour qu'en appuyant sur la touche entrée, ça valide CARRE;
 };
-
 
 /* Tableau avec les 2 propositions dans l'ordre qui seront faites si l'utilisateur choisis "DUO"*/
 char* choix_reponses_duo[NB_QUESTIONS] = {
@@ -113,6 +110,7 @@ void end_display(){
 /*Fonction qui prévient l'utilisateur qu'une question va lui être posée*/
 void question_display(){
 
+    printf("\nVous pouvez quitter le jeu en saisissant N\n");
     printf("\nVoici votre question :\n\n");
 }
 
@@ -139,10 +137,11 @@ char user_choice[255];
 char user_input[255];
 int user_answer;
 int cmp_cash;
+
 int main(){
 
-int i = 0;
-int duo_comparaison = 0, carre_comparaison = 0, cash_comparaison = 0;
+    int i = 0;
+    int is_duo = 0, is_carre = 0, is_cash = 0, enter_carre_comparaison = 0, leave_game = 0;
 
     start_display();
     rappel_regles();
@@ -154,82 +153,88 @@ int duo_comparaison = 0, carre_comparaison = 0, cash_comparaison = 0;
         printf("Vous avez 3 choix : DUO, CARRE ou CASH. Que choisissez vous ?\n\n");
         fgets(user_choice,sizeof(user_choice), stdin); 
 
-        duo_comparaison = strcmp(user_choice,"DUO\n");
-        carre_comparaison = strcmp(user_choice,"CARRE\n");
-        cash_comparaison = strcmp(user_choice,"CASH\n");
-        
-            // Si l'utilisateur choisi DUO :
-            if(duo_comparaison == 0){
+        is_duo = strcmp(user_choice,"DUO\n");
+        is_carre = strcmp(user_choice,"CARRE\n");
+        is_cash = strcmp(user_choice,"CASH\n");
+        enter_carre_comparaison = strcmp(user_choice, "\n");
+        leave_game = strcmp(user_choice, "N\n");
+    
+        // Si l'utilisateur choisi DUO :
+        if(is_duo == 0){
 
-                printf("\nVous avez choisi DUO, voici vos deux propositions :\n\n");
-                if_regles_duo();
-                printf("%s\n", choix_reponses_duo[i]); 
-                fgets(user_input,sizeof(user_input), stdin); // Utilisation de fgets pour récupérer une chaine de caractère malgré que ce soit un int
+            printf("\nVous avez choisi DUO, voici vos deux propositions :\n\n");
+            if_regles_duo();
+            printf("%s\n", choix_reponses_duo[i]); 
+            fgets(user_input,sizeof(user_input), stdin); // Utilisation de fgets pour récupérer une chaine de caractère malgré que ce soit un int
 
-                user_answer = atoi(user_input); // Utilisation d'atoi pour convertir chaine de caractère en int
+            user_answer = atoi(user_input); // Utilisation d'atoi pour convertir chaine de caractère en int
 
-                printf("Suspens...\n\n");
-                    
-                    //Si l'utilisateur rentre la bonne réponse, alors :
-                    if(user_answer == reponses_duo[i]){
-
-                        printf("Bonne réponse ! Vous gagnez 2 points !\n\n");
-                        score = score + 2;
-                        printf("Votre score est de %d points\n\n", score);
-                        
-                    // Sinon :
-                    }else{
-
-                        printf("Mauvaise réponse !\n");
-                        printf("Votre score est de %d points\n\n", score);
-                    }
+            printf("Suspens...\n\n");
                 
-                // Si l'utilisateur choisis CARRE
-            }else if(carre_comparaison == 0){
+                //Si l'utilisateur rentre la bonne réponse, alors :
+            if(user_answer == reponses_duo[i]){
 
-                printf("\nVous avez choisi CARRE, voici vos 4 propositions :\n\n");
-                if_regles_carre();
-                printf("%s\n", choix_reponses_carre[i]);
-                fgets(user_input,sizeof(user_input), stdin);
-
-                user_answer = atoi(user_input);
-
-                    if(user_answer == reponses_carre[i]){
-
-                        printf("Bien joué ! Vous gagnez 4 points !\n\n");
-                        score = score + 4;
-                        printf("Votre score est de %d points\n\n", score);
-                        
-                    }else{
-
-                        printf("Mauvaise réponse !\n");
-                        printf("Votre score est de %d points\n\n", score);
-                    }
+                printf("Bonne réponse ! Vous gagnez 2 points !\n\n");
+                score = score + 2;
+                printf("Votre score est de %d points\n\n", score);
                 
-            }else if(cash_comparaison == 0){ 
-
-                printf("\nVous avez choisi CASH, veuillez entrer la réponse.\n\n");
-                fgets(user_input,sizeof(user_input), stdin);
-                printf("%s\n", user_input);
-                cmp_cash = strcmp(user_input, choix_reponses_cash[i]);
-                
-                printf("%d\n\n", cmp_cash);
-                printf("%s\n\n", choix_reponses_cash[0]);
-
-                    if(cmp_cash == 0){
-
-                        printf("C'est excellent ! Bonne réponse !\n\n");
-                        score = score + 6;
-                        printf("Votre score est de %d points\n\n", score);
-                    }
-
-
+            // Sinon :
             }else{
 
-                printf("\nCela n'a pas marché. Faites votre choix : DUO, CARRE ou CASH ?\n");
-                fgets(user_choice,sizeof(user_choice), stdin);
-                score + 0;
+                printf("Mauvaise réponse !\n");
+                printf("Votre score est de %d points\n\n", score);
             }
+            
+            // Si l'utilisateur choisis CARRE
+        }else if(is_carre == 0 || enter_carre_comparaison == 0 ){ // || fonction_\n == 0, alors .... (L'utilisateur peut donc taper CARRE ou juste appuyer sur la touche entrée pour sélectionner CARRE)
+
+            printf("\nVous avez choisi CARRE, voici vos 4 propositions :\n\n");
+            if_regles_carre();
+            printf("%s\n", choix_reponses_carre[i]);
+            fgets(user_input,sizeof(user_input), stdin);
+
+            user_answer = atoi(user_input);
+
+            if(user_answer == reponses_carre[i]){
+
+                printf("Bien joué ! Vous gagnez 4 points !\n\n");
+                score = score + 4;
+                printf("Votre score est de %d points\n\n", score);
+                
+            }else{
+
+                printf("Mauvaise réponse !\n");
+                printf("Votre score est de %d points\n\n", score);
+            }
+                
+        }else if(is_cash == 0){ 
+
+            printf("\nVous avez choisi CASH, veuillez entrer la réponse.\n\n");
+            fgets(user_input,sizeof(user_input), stdin);
+            printf("%s\n", user_input);
+            cmp_cash = strcmp(user_input, choix_reponses_cash[i]);
+            
+            printf("%d\n\n", cmp_cash);
+            printf("%s\n\n", choix_reponses_cash[0]);
+
+            if(cmp_cash == 0){
+
+                printf("C'est excellent ! Bonne réponse !\n\n");
+                score = score + 6;
+                printf("Votre score est de %d points\n\n", score);
+            }
+
+
+        }else if(leave_game == 0){
+            printf("Vous avez choisi de quitter le jeu, au revoir.\n");
+            break;
+
+        }else{
+
+            printf("\nCela n'a pas marché. Faites votre choix : DUO, CARRE ou CASH ?\n");
+            fgets(user_choice,sizeof(user_choice), stdin);
+            score + 0;
+        }
 
     }
 
