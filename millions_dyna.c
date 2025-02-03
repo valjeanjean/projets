@@ -13,14 +13,13 @@ char* questions[NB_QUESTIONS] = {
     "Quel est le plus grand océan du monde ?\n1.Océan Atlantique\n2.Océan Indien\n3.Océan Pacifique\n",
     "Qui a écrit Les Misérables ?\n1.Victor Hugo\n2.Emile Zola\n3.Marcel Proust\n",
     "Quelle est la capitale de l'Australie ?\n1.Sydney\n2.Melbourne\n3.Canberra\n",
-    "Je m'appelle comment ?\n1.Michel\n2.Massi\n", 
+    "Laquelle de ces deux oeuvres est un tableau de De Vinci ?\n1.Le cri\n2.La Joconde\n", 
 };
 
 /*
-    Déclaration de variables globales pour les calculs du
+    Déclaration de variables pour les calculs du:
     - score
     - pourcentage de victoire (nb_bonne_reponse)
-    - reponses, le tableau de reponse
     Création d'un tableau pour contenir les réponses.
 */
 int nb_bonne_reponse = 0.0;
@@ -65,7 +64,7 @@ int main(void){
             printf("###################################################\n\n");
             nb_bonne_reponse++;
 
-        // Si l'utilisateur n'a pas saisi la bonne réponse, exécuter les instructions ci dessous.
+        // Si l'utilisateur n'a pas saisi la bonne réponse, exécuter les instructions ci-dessous.
 
         }else{
 

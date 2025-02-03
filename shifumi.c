@@ -45,14 +45,17 @@ int main(){
         if(shifumi_comp_p1 == 1){
 
             printf("Vous avez choisi pierre.\n"); //Rajouter des breaks ?
+            break;
 
         }else if(shifumi_comp_p1 == 2){
 
             printf("Vous avez choisi feuille.\n");
+            break;
 
         }else if(shifumi_comp_p1 == 3){
 
             printf("Vous avez choisi ciseaux.\n");
+            break;
 
         }else{
             //redemander pour joueur 1 ou joueur 2
@@ -63,14 +66,17 @@ int main(){
         if(shifumi_comp_p2 == 1){
 
             printf("Vous avez choisi pierre.\n");
+            break;
 
         }else if(shifumi_comp_p2 == 2){
 
             printf("Vous avez choisi feuille.\n");
+            break;
 
         }else if(shifumi_comp_p2 == 3){
 
             printf("Vous avez choisi ciseaux.\n");
+            break;
 
         }else{
 
