@@ -1,11 +1,11 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
 
 #define NB_QUESTIONS 6
 #define POURCENTAGE_MIN 50
 
 // Création d'un tableau contenant les questions
+
+//char* questions = malloc(nb_question*taille_question);
 
 char* questions[NB_QUESTIONS] = {
     "Quelle est la couleur du cheval blanc d'Henri IV?\n1.Blanc\n2.Rouge\n3.Noir\n",
@@ -20,6 +20,7 @@ char* questions[NB_QUESTIONS] = {
     Déclaration de variables pour les calculs du:
     - score
     - pourcentage de victoire (nb_bonne_reponse)
+
     Création d'un tableau pour contenir les réponses.
 */
 int nb_bonne_reponse = 0.0;
@@ -68,7 +69,6 @@ int main(void){
 
         }else{
 
-            score = score + 0;
             printf("NON !\n\n");
             printf("*Le score n'augmente pas :(*\n\n");
             printf("###################################################\n");
