@@ -1,0 +1,28 @@
+Revérifier les fonctions d'affichage
+Faire d'autres fonctions pour encapsuler le code et rendre la fonction main moins dense (pas obligé de return une variable ou quoi même lorsque la fonction est de type int);
+Faire l'algo qui va permettre de déterminer quel joueur gagne en fonction de son choix (pierre, feuille, ciseaux);
+Encapsuler les atoi ?
+Faire une fonction score
+Proposer une fonctionnalité pour que le joueur puisse choisir de quitter la partie à tout moment en tapant "0".
+Utilisation de memset?
+Fonction rand pour l'utiliser dans le cas où l'on fait le bonus pour qu'un joueur joue contre un PC.
+
+(Faire attention, switch case n'accepte que les variables constantes)
+
+                                        |
+                                        V
+
+A la fin faire une fonction d'affichage de fin de partie.
+
+
+
+BONUS : 
+
+Faire une fonctionnalité pour qu'un joueur puisse jouer contre un PC
+FileSystem etc
+
+
+F OPEN pour shifumi pour enregistrer le score
+
+
+APPRENDRE MEMORY MANAGER; SCHEDULER 

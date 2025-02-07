@@ -102,6 +102,39 @@ void end_display(){
     printf("########### GAME OVER ###########\n");
 
 }
+
+/*void boucle_for_pile(){
+
+int is_match_face = 0, i = 0, j = 0;
+
+ for (i = 0; i < browse_table; i++) {
+
+            is_match_face = 2;
+
+            for(j = 0; comparaison_face[i][j] != '\0' && user_choice[j] != '\0'; j++){
+
+                if (user_choice[j] != comparaison_face[i][j]) {
+
+                    is_match_face = 0; // Si une différence est trouvée, on marque is_match à 0
+                    break; // On arrête la comparaison parce qu'il y a une différence
+                }
+            }
+            
+            if(is_match_face && user_choice[j] == comparaison_face[i][j]) {
+                
+                break; // La correspondance est trouvée
+            }
+        }
+          
+
+
+
+    return is_match_face;
+}*/
+
+
+
+
                                 // FONCTION MAIN
 /*---------------------------------------------------------------------------------*/
 
